@@ -6,6 +6,7 @@ import {developersignin} from "../redux/actions/developer"
 import {adminsignin} from "../redux/actions/admin"
 import {getusers} from "../redux/actions/admin"
 import { baseUrlFrontend } from '../frontend-url'
+import { Link } from 'react-router-dom'
 function Login() {
   const [email, setEmail] = useState("")
   const {getUserData,getUserError,getUserloading}=useData()
@@ -186,9 +187,9 @@ Loading.....
 
             <p class="text-center">
               <span>New on our platform?</span>
-              <a href="auth-register-basic.html">
+              <Link to="/login">
                 <span>Create an account</span>
-              </a>
+              </Link>
             </p>
           </div>
         </div>
