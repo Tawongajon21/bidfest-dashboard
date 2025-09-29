@@ -187,7 +187,7 @@ Loading.....
 
             <p class="text-center">
               <span>New on our platform?</span>
-              <Link to="/login">
+              <Link to="/register">
                 <span>Create an account</span>
               </Link>
             </p>
