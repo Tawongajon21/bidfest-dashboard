@@ -1,0 +1,4 @@
+export const SAVE_PROGRESS="SAVE_PROGRESS"
+export const SAVE_SUCCESS="SAVE_SUCCESS"
+export const SAVE_FAILURE="SAVE_FAILURE"
+

@@ -1,0 +1,490 @@
+
+
+{
+  /**  
+   * 
+   * paginatedLots?.map((item)=>{
+let specs=JSON.parse(item.specs);
+
+return Object.entries(item.specs).map(([key,value],idx)=>(
+ <div key={idx} class="col-md-6 col-lg-4 mb-3">
+  <div class="card h-100">
+    <div class="card-body">
+      <h5 class="card-title">{key}:{value}</h5>
+      <p style={{
+        display:"flex",
+        gap:"1rem"
+      }}>
+        {
+          /**    <button style={{
+       cursor:"pointer"
+      }} 
+      data-bs-toggle="modal"
+      data-bs-target="#basicModal"
+      onClick={()=>openEditModal(item)} className='btn btn-secondary'>
+          Edit
+        </button>
+      }
+     
+      <button style={{
+     cursor:"pointer"
+    }} onClick={()=>{
+        
+   if (window.confirm(`Are you sure you want to delete the ${item.propertyName}?`)) {
+ 
+    handleDelete(item._id)
+
+  }
+
+
+ 
+      
+      }} className='btn btn-danger '>
+      Delete
+      </button>
+      <Link to={`/home/bidders/${item._id}`} style={{
+     cursor:"pointer"
+    }}  className='btn btn-primary '>
+   See Bids
+      </Link>
+    </p>
+ 
+  </div>
+</div>
+</div> 
+))
+
+
+
+
+
+})
+
+:
+    <div class="col-md-6 col-lg-4 mb-3">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">{item.propertyName}</h5>
+        <h6 class="card-subtitle text-muted">{moment(item.auctionDate).format("D MMMM YYYY")}</h6>
+       
+        
+        <img
+          class="img-fluid d-flex mx-auto my-4"
+          src={`${imageServerUrl}${item.exteriorImages[0].newPath}`}
+          alt="Card image cap"
+        />
+        <p class="card-text">Key :  {item.keyAvailable ? "Yes " : "No"}</p>
+        <p class="card-text">Current Bid : ${item.currentPrice}</p>
+        <p class="card-text">Expected Price: ${item.expectedPrice}</p>
+        <p class="card-text">Mileage: {item.mileage}km</p>
+        <p style={{
+          display:"flex",
+          gap:"1rem"
+        }}>
+          {
+            /**    <button style={{
+         cursor:"pointer"
+        }} 
+        data-bs-toggle="modal"
+        data-bs-target="#basicModal"
+        onClick={()=>openEditModal(item)} className='btn btn-secondary'>
+            Edit
+          </button>*/
+        }
+  
+        <button style={{
+       cursor:"pointer"
+      }} onClick={()=>{
+          
+     if (window.confirm(`Are you sure you want to delete the ${item.propertyName}?`)) {
+   
+      handleDelete(item._id)
+  
+    }
+
+
+   
+        
+        }} className='btn btn-danger '>
+        Delete
+        </button>
+        <Link to={`/home/bidders/${item._id}`} style={{
+       cursor:"pointer"
+      }}  className='btn btn-primary '>
+     See Bids
+        </Link>
+      </p>
+   
+    </div>
+  </div>
+</div>
+          <div class="col mb-3">
+          <label for="nameBasic" class="form-label">Property Name</label>
+          <input type="text" value={propertyName} onChange={(e)=>setpropertyName(e.target.value)} id="nameBasic" class="form-control" placeholder="Enter Property Name" />
+        </div>
+      <div class="col mb-3">
+          <label for="emailBasic" class="form-label">Mileage</label>
+          <input type="number" value={mileage} onChange={(e)=>setmileage(e.target.value)} id="emailBasic" class="form-control" placeholder="Mileage .." />
+        </div>
+        <div class="col mb-3">
+          <label for="emailBasic" class="form-label">Starting Selling Price</label>
+          <input type="number" value={startingPrice} onChange={(e)=>setstartingPrice(e.target.value)} id="emailBasic" class="form-control" placeholder="Starting Selling Price" />
+        </div>
+        <div class="col mb-3">
+          <label for="emailBasic" class="form-label">Expected Selling Price</label>
+          <input type="number" value={expectedPrice} onChange={(e)=>setexpectedPrice(e.target.value)} id="emailBasic" class="form-control" placeholder="Expected Selling Price" />
+        </div>
+        <div class="col mb-3">
+          <label for="dobBasic" class="form-label">Key Available</label>
+          <select onChange={
+            (e)=>{
+
+
+
+
+              setkeyavailable(e.target.value)
+            }
+          } class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
+<option selected>Choose your option</option>
+<option value={true}>Yes</option>
+<option value={false}>No</option>
+
+</select>
+        </div>
+        <div class="col mb-3">
+                                    <label for="dobBasic" class="form-label">Vehicle Type</label>
+                                    <select onChange={
+                                      (e)=>setvehicleType(e.target.value)
+                                    } class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
+                          <option selected>Choose your option</option>
+                          <option value="Sedan">Sedan</option>
+        <option value="Hatchback">Hatchback</option>
+        <option value="Motorcylce">Motorcycle</option>
+        <option value="SUV">SUV</option>
+        <option value="Haulage Truck">Haulage Truck</option>
+        <option value="Van">Van</option>
+        <option value="Pickup truck">Pickup truck</option>
+        <option value="4 x 4 truck">4 x 4 truck</option>
+                       
+                        </select>
+                                  </div>
+                           
+  <div class="col mb-3">
+                                    <label for="dobBasic" class="form-label">Number of Seats</label>
+                                    <select onChange={
+                                      (e)=>setseats(e.target.value)
+                                    } class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
+                          <option selected>Choose Number of Seats</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                          <option value="18">18</option>
+                          <option value="19">19</option>
+                          <option value="20">20</option>
+  
+                       
+                        </select>
+                                  </div>
+
+
+  <div class="col mb-3">
+                                    <label for="dobBasic" class="form-label">Car Release Year</label>
+                                    <select onChange={
+                                      (e)=>setyear(e.target.value)
+                                    } class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
+                          <option selected>Select Release Year</option>
+                          <option value="1990">1990</option>
+                          <option value="1991">1991</option>
+                          <option value="1992">1992</option>
+                          <option value="1993">1993</option>
+                          <option value="1994">1994</option>
+                          <option value="1995">1995</option>
+                          <option value="1996">1996</option>
+                          <option value="1997">1997</option>
+                          <option value="1998">1998</option>
+                          <option value="1999">1999</option>
+                          <option value="2000">2000</option>
+                          <option value="2001">2001</option>
+                          <option value="2002">2002</option>
+                          <option value="2003">2003</option>
+                          <option value="2004">2004</option>
+                          <option value="2005">2005</option>
+                          <option value="2006">2006</option>
+                          <option value="2007">2007</option>
+                          <option value="2008">2008</option>
+                          <option value="2009">2009</option>
+                          <option value="2010">2010</option>
+                          <option value="2011">2011</option>
+                          <option value="2012">2012</option>
+                          <option value="2013">2013</option>
+                          <option value="2014">2014</option>
+                          <option value="2015">2015</option>
+                          <option value="2016">2016</option>
+                          <option value="2017">2017</option>
+                          <option value="2018">2018</option>
+                          <option value="2019">2019</option>
+                          <option value="2020">2020</option>
+                          <option value="2021">2021</option>
+                          <option value="2022">2022</option>
+                          <option value="2023">2023</option>
+                          <option value="2024">2024</option>
+                          <option value="2025">2025</option>
+  
+                       
+                        </select>
+                                  </div>
+                                  <div class="col mb-3">
+                                    <label for="dobBasic" class="form-label">Vehicle Fuel Type</label>
+                                    <select onChange={
+                                      (e)=>setfuelType(e.target.value)
+                                    } class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
+                          <option selected>Choose your option</option>
+                          <option value="Diesel">Diesel</option>
+                          <option value="Petrol">Petrol</option>
+                          <option value="Electric Vehicle">Electric Vehicle</option>
+                       
+                       
+                        </select>
+                                  </div>
+                                  <div class="col mb-3">
+                                    <label for="dobBasic" class="form-label">Number of Doors</label>
+                                    <select onChange={
+                                      (e)=>setnumberofDoors(e.target.value)
+                                    } class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
+                          <option selected>Choose your option</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                        
+                       
+                        </select>
+                                  </div>
+                            
+        <div class="col mb-0">
+          <label for="emailBasic" class="form-label">External Images</label>
+          <input onChange={(e)=>setexteriorImages(e.target.files)} multiple accept='image/*' type="file"  id="emailBasic" class="form-control" placeholder="Mileage .." />
+        </div>
+        <div class="col mb-0">
+          <label for="emailBasic" class="form-label">Internal Images</label>
+          <input onChange={(e)=>setinteriorImages(e.target.files)} multiple accept='image/*' type="file"  id="emailBasic" class="form-control" placeholder="Mileage .." />
+        </div>
+ 
+   * isEditMode=== true ? 
+  <div class="modal fade" id="basicModal" tabindex="-1" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel1">Update Lot</h5>
+                                <button
+                                  type="button"
+                                  class="btn-close"
+                                  data-bs-dismiss="modal"
+                                  aria-label="Close"
+                                ></button>
+                               
+                              </div>
+
+                              {
+                                
+  visible === true &&
+  <div style={{
+    display:"flex",
+    justifyContent:"center",
+    gap:"0.6rem",
+    alignItems:"center"
+  }}>
+  <p style={{
+    marginLeft:"1.5rem"
+  }}>
+  {loadingState.message}    <FaCheck style={{
+        color:"green"
+    }} size={20}/> 
+   
+  </p>
+ </div>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+                              <div class="modal-body">
+                                <div class="row">
+                                  <div class="col mb-3">
+                                    <label for="nameBasic" class="form-label">Property Name</label>
+                                    <input name="propertyName" type="text" value={formData.propertyName} onChange={handleChange} id="nameBasic" class="form-control" placeholder="Enter Property Name" />
+                                  </div>
+                                </div>
+                                <div class="col mb-3">
+                                    <label for="emailBasic" class="form-label">Mileage</label>
+                                    <input name="mileage" type="number" value={formData.mileage} onChange={handleChange} id="emailBasic" class="form-control" placeholder="Mileage .." />
+                                  </div>
+                                  <div class="col mb-3">
+                                    <label for="emailBasic" class="form-label">Starting Selling Price</label>
+                                    <input name="startingPrice" type="number" value={formData.startingPrice} onChange={handleChange} id="emailBasic" class="form-control" placeholder="Starting Selling Price" />
+                                  </div>
+                                  <div class="col mb-3">
+                                    <label for="emailBasic" class="form-label">Expected Selling Price</label>
+                                    <input name="expectedPrice" type="number" value={formData.expectedPrice} onChange={handleChange} id="emailBasic" class="form-control" placeholder="Expected Selling Price" />
+                                  </div>
+                                  <div class="col mb-3">
+                                    <label for="dobBasic" class="form-label">Key Available</label>
+                                    <select 
+                                 onChange={handleChange}
+                                    class="form-select" name='keyAvailable' id="exampleFormControlSelect1" aria-label="Default select example">
+                         
+                         
+                         
+                        
+                            <option value={formData.keyAvailable} key={formData.keyAvailable}>{formData.keyAvailable === true  ?"Yes":"No"}</option>
+                        
+                          
+                          <option  value={true}>Yes</option>
+                          <option value={false}>No</option>
+                        
+                        </select>
+                                  </div>
+                                  <div class="col mb-3">
+                                    <label for="dobBasic" class="form-label">Vehicle Type</label>
+                                    <select name='vehicleType' onChange={
+                                     handleChange
+                                    } class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
+                          <option selected>{formData.vehicleType}</option>
+                          <option value="Sedan">Sedan</option>
+        <option value="Hatchback">Hatchback</option>
+        <option value="Motorcylce">Motorcycle</option>
+        <option value="SUV">SUV</option>
+        <option value="Haulage Truck">Haulage Truck</option>
+        <option value="Van">Van</option>
+        <option value="Pickup truck">Pickup truck</option>
+        <option value="4 x 4 truck">4 x 4 truck</option>
+                       
+                        </select>
+                                  </div>
+                              
+                                  <div style={{
+                                    marginTop:"1rem",
+                                    marginBottom:"1rem"
+                                  }} class="col mb-0">
+
+
+                                    <label for="emailBasic" class="form-label">External Images</label>
+                                    <div  style={{
+                                               marginBottom:"1rem"
+                                    }} className='mt-2'>
+                                  {
+                          formData.exteriorImages?.map((item)=>(
+                            <div style={{
+                              display:"flex",
+                              gap:"-4rem"
+                            }} className=''>
+                               <img width={200} height={200} class="img-fluid" src={`${imageServerUrl}${item.newPath}`}  alt="Card image cap" />
+                                
+                                <button
+                                  type="button"
+                                  class="btn-close"
+                                  data-bs-dismiss="modal"
+                                  aria-label="Close"
+                                  onClick={()=>handleRemoveImage(item)}
+                                ></button>
+                               
+                            </div>
+                         
+                          ))          
+                                  }    
+
+                          
+                                  </div>
+
+
+
+                                    <input onChange={(e)=>setexteriorImages(e.target.files)} multiple accept='image/*' type="file"  id="emailBasic" class="form-control" placeholder="Mileage .." />
+                                  </div>
+                              
+                                  <div style={{
+                                    marginTop:"1rem",
+                                    marginBottom:"1rem"
+                                  }} class="col mb-0">
+
+
+                                    <label for="emailBasic" class="form-label">Interior Images</label>
+                                    <div  style={{
+                                               marginBottom:"1rem"
+                                    }} className='mt-2'>
+                                  {
+                          formData.interiorImages?.map((item)=>(
+                            <div style={{
+                              display:"flex",
+                              gap:"-4rem"
+                            }} className=''>
+                               <img width={200} height={200} class="img-fluid" src={`${imageServerUrl}${item.newPath}`}  alt="Card image cap" />
+                                
+                                <button
+                                  type="button"
+                                  class="btn-close"
+                                  data-bs-dismiss="modal"
+                                  aria-label="Close"
+                                  onClick={()=>handleRemoveImage(item)}
+                                ></button>
+                               
+                            </div>
+                         
+                          ))          
+                                  }    
+
+                          
+                                  </div>
+
+
+
+                                    <input onChange={(e)=>setexteriorImages(e.target.files)} multiple accept='image/*' type="file"  id="emailBasic" class="form-control" placeholder="Mileage .." />
+                                  </div>
+                              
+                              </div>
+                              <div style={{
+                                display:"flex",
+                                justifyContent:"center"
+                              }} class="modal-footer">
+                              
+                                <button onClick={()=>submitEdit(editingId)} type="button" class="btn btn-primary">Update Lot</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div> : 
+ */
+
+
