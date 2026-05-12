@@ -643,37 +643,35 @@ Add Lot
  {
  itemType!== "" && (
    
-   <div className='row' style={{
-    marginBottom:"1rem"
-   }}>
+   <div class="row" >
 
-     <div class="row" style={{
+     <div class=" mb-3" style={{
     marginBottom:"1rem"
    }}>
 
     <label for="emailBasic" class="form-label">Property Name</label>
     <input onChange={(e)=>setpropertyName(e.target.value)}  type="text"  id="emailBasic" class="form-control" placeholder="Property Name" />
   </div>
-     <div class="row" style={{
+     <div class=" mb-3" style={{
     marginBottom:"1rem"
    }}>
     <label for="emailBasic" class="form-label">Expected Selling Price</label>
     <input onChange={(e)=>setexpectedPrice(e.target.value)}  type="number"  id="emailBasic" class="form-control" placeholder="Expected Selling Price" />
   </div>
-     <div class="row" style={{
+     <div class=" mb-3" style={{
     marginBottom:"1rem"
    }}>
     <label for="emailBasic" class="form-label">Initial Selling Price</label>
     <input onChange={(e)=>setstartingPrice(e.target.value)}  type="number"  id="emailBasic" class="form-control" placeholder="Initial Selling Price" />
   </div>
-     <div class="row" style={{
+     <div class=" mb-3" style={{
     marginBottom:"1rem"
    }}>
     <label for="emailBasic" class="form-label">Current Price</label>
     <input onChange={(e)=>setcurrentPrice(e.target.value)}  type="number"  id="emailBasic" class="form-control" placeholder="Initial Current  Price" />
   </div>
     
-     <div class="row" style={{
+     <div class=" mb-3" style={{
     marginBottom:"1rem"
    }}>
     <label for="emailBasic" class="form-label">Lot Images</label>
