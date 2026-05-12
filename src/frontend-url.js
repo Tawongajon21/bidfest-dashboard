@@ -1,1 +1,2 @@
-export const baseUrlFrontend='https://admin.bidfirstauctions.co.zw';
+export const baseUrlFrontend='https://bidfest-dashboard.vercel.app';
+
